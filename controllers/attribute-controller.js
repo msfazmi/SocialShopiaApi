@@ -14,6 +14,14 @@ class AttributeController {
         res.json({ success: true, message: 'Attribute Added' });
     }
 
+    findAttributes = async (req, res, next) => {
+        const result = await attributeService.findAttributes(null);
+        if (!result || result.length < 1)
+            return next(ErrorHandler.serverError('No Attribute Found'));
+        const data = result.map((x) => new AttributeDto(x));
+        res.json({ success: true, message: 'Attribute Found', data });
+    }
+
     findAttribute = async (req, res, next) => {
         const { id } = req.params;
         if (!mongoose.isValidObjectId(id))
@@ -22,14 +30,6 @@ class AttributeController {
         if (!result)
             return next(ErrorHandler.serverError('No Attribute Found'));
         res.json({ success: true, message: 'Attribute Found', data: new AttributeDto(result) });
-    }
-
-    findAttributes = async (req, res, next) => {
-        const result = await attributeService.findAttributes(null);
-        if (!result || result.length < 1)
-            return next(ErrorHandler.serverError('No Attribute Found'));
-        const data = result.map((x) => new AttributeDto(x));
-        res.json({ success: true, message: 'Attribute Found', data });
     }
 
     updateAttribute = async (req, res, next) => {

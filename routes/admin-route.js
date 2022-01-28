@@ -12,8 +12,20 @@ const upload = require('../services/file-upload-service');
 
 // Addresses
 router.post('/country', am(countryController.createCountry));
+router.get('/country/:id', am(countryController.findCountry));
+router.patch('/country', am(countryController.updateCountry));
+router.delete('/country', am(countryController.deleteCountry));
+
 router.post('/state', am(stateController.createState));
+router.get('/state/:id', am(stateController.findState));
+router.patch('/state', am(stateController.updateState));
+router.delete('/state', am(stateController.deleteState));
+
+
 router.post('/city', am(cityController.createCity));
+router.get('/city/:id', am(cityController.findCity));
+router.patch('/city', am(cityController.updateCity));
+router.delete('/city', am(cityController.deleteCity));
 
 //Users
 router.get('/users', am(userController.findUsers));
