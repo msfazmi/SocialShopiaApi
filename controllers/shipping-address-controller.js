@@ -1,3 +1,5 @@
+const addressService = require('../services/address-service');
+const Constants = require('../utils/constants');
 
 class ShippingAddressController {
 
@@ -10,6 +12,14 @@ class ShippingAddressController {
     }
 
     updateShippingAddress = async (req, res, next) => {
+
+    }
+
+    createShippingAddress = async (userId,addressId) =>{
+        const address = await addressService.findAddress({userId,_id:addressId});
+        if(!address)
+            return Constants.MESSAGE_ADDRESS_NOT_FOUND;
+        
 
     }
 

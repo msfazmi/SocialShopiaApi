@@ -9,6 +9,11 @@ const attributeSchema = new Schema({
         maxlength: 30,
         required: true,
         unique: true
+    },
+    type: {
+        type: String,
+        enum: ['size', 'color'],
+        required: true,
     }
 
 });

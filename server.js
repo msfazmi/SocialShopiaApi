@@ -6,6 +6,7 @@ const authRoute = require('./routes/auth-route');
 const adminRoute = require('./routes/admin-route');
 const commonRoute = require('./routes/common-route');
 const userRoute = require('./routes/user-route');
+const publicRoute = require('./routes/public-route');
 const cors = require('cors');
 const dbConfig = require('./configs/db-config');
 const ErrorHandler = require('./utils/error-handler');
@@ -26,6 +27,7 @@ app.use(cookieParser());
 
 app.use('/api/auth', authRoute);
 app.use('/api/common', commonRoute); //auth
+app.use('/api/public', publicRoute); //auth
 app.use('/api/admin', auth, authRole('admin'), adminRoute);
 app.use('/api/user', auth, authRole('admin'), userRoute);
 app.use('/storage', express.static('storage'));

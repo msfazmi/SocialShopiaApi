@@ -1,6 +1,16 @@
+const ProductModel = require('../models/product-model');
 
 class ProductService {
 
+    createProduct = async data => await ProductModel.create(data);
+
+    findProduct = async filter => await ProductModel.findOne(filter).populate('thumbnail').populate('images').populate('attributeIds').populate('metaImage');
+
+    findProducts = async filter => await ProductModel.find(filter).populate('thumbnail').populate('images').populate('attributeIds').populate('metaImage');
+
+    updateProduct = async (filter, data) => await ProductModel.updateOne(filter, data);
+
+    deleteProduct = async filter => await ProductModel.deleteOne(filter);
 
 }
 
