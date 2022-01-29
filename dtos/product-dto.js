@@ -1,5 +1,7 @@
 const UploadDto = require('../dtos/upload-dto');
 const ProductStockDto = require('./product-stock-dto');
+const BrandDto = require('./brand-dto');
+const CategoryDto = require('./category-dto');
 
 class ProductDto {
 
@@ -27,8 +29,8 @@ class ProductDto {
     constructor(data) {
         this.id = data._id;
         this.name = data.name;
-        this.category = data.category;
-        this.brand = data.brand;
+        this.category = new CategoryDto(data.categoryId);
+        this.brand = new BrandDto(data.brandId);
         this.images = data.images.map((x) => new UploadDto(x));
         this.thumbnail = process.env.APP_URL_IMAGES + data.thumbnail.path;
         this.description = data.description;

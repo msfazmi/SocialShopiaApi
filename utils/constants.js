@@ -46,13 +46,23 @@ class Constants {
     static MESSAGE_BANNER_DELETED = "Banner Deleted";
 
 
-    //Banner
+    //Wishlist
     static MESSAGE_WISHLIST_ADDED = "Wishlist Added";
     static MESSAGE_WISHLIST_ADD_FAILED = "Failed To Add Wishlist";
     static MESSAGE_WISHLIST_FOUND = "Wishlist Found";
     static MESSAGE_WISHLIST_NOT_FOUND = "No Wishlist Found";
     static MESSAGE_WISHLIST_ID_INVALID = "Invalid Wishlist Id";
     static MESSAGE_WISHLIST_DELETED = "Wishlist Deleted";
+
+
+    //Cart
+    static MESSAGE_CART_ADDED = "Cart Added";
+    static MESSAGE_CART_ADD_FAILED = "Failed To Add Cart";
+    static MESSAGE_CART_FOUND = "Cart Found";
+    static MESSAGE_CART_NOT_FOUND = "No Cart Found";
+    static MESSAGE_CART_ID_INVALID = "Invalid Cart Id";
+    static MESSAGE_CART_UPDATE = "Cart Updated";
+    static MESSAGE_CART_DELETED = "Cart Deleted";
 }
 
 module.exports = Constants;

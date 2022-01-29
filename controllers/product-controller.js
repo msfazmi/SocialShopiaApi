@@ -68,7 +68,10 @@ class ProductControlelr {
     }
 
     updateProduct = async (req, res, next) => {
-
+        const body = await productValidation.updateProduct.validateAsync(req.body);
+        const result = await productService.updateProduct({ _id: body.id }, body);
+        console.log(body);
+        res.json(result);
     }
 
     deleteProduct = async (req, res, next) => {
