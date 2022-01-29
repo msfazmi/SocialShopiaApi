@@ -1,22 +1,13 @@
 const UploadDto = require('./upload-dto');
+const ProductDto = require('./product-dto');
 
 class BannerDto {
     id;
-    title;
-    image;
-    type;
-    status;
-    productId;
-    categoryId;
+    product;
 
     constructor(data) {
         this.id = data._id;
-        this.title = data.title;
-        this.image = data.image == null ? null : new UploadDto(data.image).path;
-        this.type = data.type;
-        this.status = data.status;
-        this.productId = data.productId;
-        this.categoryId = data.categoryId;
+        this.product = data.productId == null ? null : new ProductDto(data.productId);
     }
 
 }

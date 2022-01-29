@@ -18,24 +18,29 @@ class ProductControlelr {
         if (body.attributeIds.length != body.attributePrices.length || body.attributeIds.length != body.attributeQuantities.length)
             return next(ErrorHandler.badRequest('Attribute Price & Quantity Is Required'));
 
-        const product = await productService.createProduct(body);
-
-        if (!product)
-            return next(ErrorHandler.serverError('Failed To Add Product'));
-
         for (let i = 0; i < body.attributeIds.length; i++) {
             stock.push({
-                productId: product._id,
                 attributeId: body.attributeIds[i],
                 price: body.attributePrices[i],
                 quantity: body.attributeQuantities[i]
             });
         }
         const productStock = await productStockService.createProductStocks(stock);
-        if (!productStock || productStock.length < 1) {
-            await productService.deleteProduct({ _id: product._id });
+
+        console.log(productStock);
+
+        if (!productStock || productStock.length < 1)
             return next(ErrorHandler.serverError('Failed To Add Product'));
-        }
+
+        body.stockIds = productStock.map((x) => {
+            return x._id;
+        })
+
+        const product = await productService.createProduct(body);
+
+        if (!product)
+            return next(ErrorHandler.serverError('Failed To Add Product'));
+
         res.json({ success: true, message: 'Product Added' });
     }
 
@@ -45,13 +50,12 @@ class ProductControlelr {
         if (!mongoose.isValidObjectId(id))
             filter = { slug: id };
         const result = await productService.findProduct(filter);
-        res.json(result);
         if (!result)
             return next(ErrorHandler.serverError('No Product Found'));
         res.json({ success: true, message: 'Products Found', data: new ProductDto(result) });
     }
 
-    
+
 
     findProducts = async (req, res, next) => {
         const result = await productService.findProducts();

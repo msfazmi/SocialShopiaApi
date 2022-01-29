@@ -1,5 +1,5 @@
 const UploadDto = require('../dtos/upload-dto');
-const AttributeDto = require('./attribute-dto');
+const ProductStockDto = require('./product-stock-dto');
 
 class ProductDto {
 
@@ -11,7 +11,7 @@ class ProductDto {
     thumbnail;
     description;
     price;
-    attributes;
+    choiceOptions;
     featured;
     todaysDeal;
     hasDiscount;
@@ -33,7 +33,7 @@ class ProductDto {
         this.thumbnail = process.env.APP_URL_IMAGES + data.thumbnail.path;
         this.description = data.description;
         this.price = data.price;
-        this.attributes = data.attributeIds.map((x) => new AttributeDto(x));
+        this.choiceOptions = data.stockIds == null ? null : data.stockIds.map((x) => new ProductStockDto(x));
         this.featured = data.featured;
         this.todaysDeal = data.todaysDeal;
         this.metaTitle = data.metaTitle;

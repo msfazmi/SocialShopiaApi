@@ -1,20 +1,20 @@
 {
-  "name": "farooquiherbal",
+  "name": "socialshopia",
   "version": "1.0.0",
-  "description": "Farooqui Herbal Company",
+  "description": "An Ecommerce Api With The Name Of Social Shopia From Social Codia Devloped By @mufazmi",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server",
     "start": "node server.js"
   },
   "keywords": [
-    "Farooqui",
-    "Herbal",
-    "Company",
-    "Ayurvedic",
-    "Company"
+    "Social Codia",
+    "Social Shopia",
+    "mufazmi",
+    "Ecommerce Project",
+    "Ecommerce Api"
   ],
-  "author": "Farooqui Herbal Company",
+  "author": "An Ecommerce Api With The Name Of Social Shopia From Social Codia Devloped By @mufazmi",
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^17.1.1",

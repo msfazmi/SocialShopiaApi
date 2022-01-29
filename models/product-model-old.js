@@ -46,10 +46,10 @@ const productSchema = new Schema({
         min: 0,
         max: 100000
     },
-    stockIds: [
+    attributeIds: [
         {
-            type: Schema.Types.ObjectId,
-            ref: 'ProductStock'
+            type: Schema.ObjectId,
+            ref: 'Attribute'
         }
     ],
     published: {
@@ -110,4 +110,4 @@ const productSchema = new Schema({
     }
 );
 
-module.exports = new mongoose.model('Product', productSchema, 'products');
+// module.exports = new mongoose.model('Product', productSchema, 'products');
