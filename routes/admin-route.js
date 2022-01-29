@@ -10,6 +10,7 @@ const categoryController = require('../controllers/category-controller');
 const attributeController = require('../controllers/attribute-controller');
 const productController = require('../controllers/product-controller');
 const upload = require('../services/file-upload-service');
+const bannerController = require('../controllers/banner-controller');
 
 //Countries
 router.post('/country', am(countryController.createCountry));
@@ -55,11 +56,15 @@ router.get('/attribute/:id', am(attributeController.findAttribute));
 router.patch('/attribute', am(attributeController.updateAttribute));
 router.delete('/attribute', am(attributeController.deleteAttribute));
 
-
 //Products
 router.post('/product', am(productController.createProduct));
 router.patch('/product', am(productController.updateProduct));
 router.delete('/product', am(productController.deleteProduct));
+
+//Banner
+router.post('/banner', am(bannerController.createBanner));
+router.patch('/banner', am(bannerController.updateBanner));
+router.delete('/banner', am(bannerController.deleteBanner));
 
 
 module.exports = router;

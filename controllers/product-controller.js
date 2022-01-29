@@ -45,10 +45,13 @@ class ProductControlelr {
         if (!mongoose.isValidObjectId(id))
             filter = { slug: id };
         const result = await productService.findProduct(filter);
+        res.json(result);
         if (!result)
             return next(ErrorHandler.serverError('No Product Found'));
         res.json({ success: true, message: 'Products Found', data: new ProductDto(result) });
     }
+
+    
 
     findProducts = async (req, res, next) => {
         const result = await productService.findProducts();

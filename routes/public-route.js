@@ -6,6 +6,7 @@ const brandController = require('../controllers/brand-controller');
 const categoryController = require('../controllers/category-controller');
 const productController = require('../controllers/product-controller');
 const am = require('../middlewares/async-middleware');
+const bannerController = require('../controllers/banner-controller');
 
 //Countries
 router.get('/countries', am(countryController.findCountries));
@@ -28,6 +29,11 @@ router.get('/category/:id', am(categoryController.findCategory));
 //Products
 router.get('/products', am(productController.findProducts));
 router.get('/product/:id', am(productController.findProduct));
+
+
+//Banners
+router.get('/banners', am(bannerController.findBanners));
+router.get('/banner/:id', am(bannerController.findBanner));
 
 
 
