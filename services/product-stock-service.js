@@ -14,6 +14,8 @@ class ProductStockService {
 
     deleteProductStock = async filter => await ProductStockModel.deleteOne(filter);
 
+    deleteProductStocks = async filter => await ProductStockModel.deleteMany(filter);
+
 }
 
 module.exports = new ProductStockService();

@@ -52,6 +52,10 @@ class ProductValidation {
         slug: Joi.string().min(3).max(500).lowercase(),
     });
 
+    deleteProduct = Joi.object({
+        id: Joi.objectId().required(),
+    });
+
 }
 
 module.exports = new ProductValidation();

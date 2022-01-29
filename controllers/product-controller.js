@@ -72,8 +72,16 @@ class ProductControlelr {
     }
 
     deleteProduct = async (req, res, next) => {
-
+        const body = await productValidation.deleteProduct.validateAsync(req.body);
+        const deletedProduct = await productService.findProductAndDelete({ _id: body.id });
+        if (!deletedProduct)
+            return next(ErrorHandler.notFound('Product Not Found'));
+        const stockIds = deletedProduct.stockIds.map((x) => x);
+        const isStockDeleted = await productStockService.deleteProductStocks({ _id: { $in: stockIds } });
+        return (!isStockDeleted.deletedCount > 0) ? next(ErrorHandler.notFound('Product Not Found')) : res.json({ success: true, message: 'Product Deleted Successfully' });
     }
+
+
 
 }
 

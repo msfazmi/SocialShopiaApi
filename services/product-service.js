@@ -12,6 +12,8 @@ class ProductService {
 
     deleteProduct = async filter => await ProductModel.deleteOne(filter);
 
+    findProductAndDelete = async filter => await ProductModel.findOneAndDelete(filter);
+
 }
 
 module.exports = new ProductService();
