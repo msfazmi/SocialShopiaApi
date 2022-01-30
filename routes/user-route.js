@@ -4,6 +4,7 @@ const addressController = require('../controllers/address-controller');
 const userController = require('../controllers/user-controller');
 const upload = require('../services/file-upload-service');
 const wishlistController = require('../controllers/wishlist-controller');
+const orderController = require('../controllers/order-controller');
 const cartController = require('../controllers/cart-controller');
 
 //Adddresses
@@ -29,6 +30,13 @@ router.get('/carts', am(cartController.findCarts));
 router.get('/cart/:id', am(cartController.findCart));
 router.patch('/cart', am(cartController.updateCarts));
 router.delete('/cart', am(cartController.deleteCart));
+
+
+//Carts
+router.post('/order', am(orderController.createOrder));
+router.get('/orders', am(orderController.findOrders));
+router.get('/order/:id', am(orderController.findOrder));
+router.patch('/order', am(orderController.updateOrders));
 
 
 module.exports = router;
