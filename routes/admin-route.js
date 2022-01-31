@@ -12,6 +12,7 @@ const productController = require('../controllers/product-controller');
 const upload = require('../services/file-upload-service');
 const paymentMethodController = require('../controllers/payment-method-controller');
 const bannerController = require('../controllers/banner-controller');
+const timeSlotController = require('../controllers/time-slot-controller');
 
 //Countries
 router.post('/country', am(countryController.createCountry));
@@ -68,10 +69,15 @@ router.patch('/banner', am(bannerController.updateBanner));
 router.delete('/banner', am(bannerController.deleteBanner));
 
 
-//Banner
+//Payment Method
 router.post('/payment-method', am(paymentMethodController.createPaymentMethod));
 router.patch('/payment-method', am(paymentMethodController.updatePaymentMethod));
 router.delete('/payment-method', am(paymentMethodController.deletePaymentMethod));
+
+//Time Slot
+router.post('/time-slot', am(timeSlotController.createTimeSlot));
+router.patch('/time-slot', am(timeSlotController.updateTimeSlot));
+router.delete('/time-slot', am(timeSlotController.deleteTimeSlot));
 
 
 module.exports = router;

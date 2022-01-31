@@ -45,6 +45,15 @@ class Constants {
     static MESSAGE_BANNER_UPDATE = "Banner Updated";
     static MESSAGE_BANNER_DELETED = "Banner Deleted";
 
+    //Times Slot
+    static MESSAGE_TIME_SLOT_ADDED = "Time Slot Added";
+    static MESSAGE_TIME_SLOT_ADD_FAILED = "Failed To Add Time Slot";
+    static MESSAGE_TIME_SLOT_FOUND = "Time Slot Found";
+    static MESSAGE_TIME_SLOT_NOT_FOUND = "No Time Slot Found";
+    static MESSAGE_TIME_SLOT_ID_INVALID = "Invalid Time Slot Id";
+    static MESSAGE_TIME_SLOT_UPDATE = "Time Slot Updated";
+    static MESSAGE_TIME_SLOT_DELETED = "Time Slot Deleted";
+
 
     //Wishlist
     static MESSAGE_WISHLIST_ADDED = "Wishlist Added";
@@ -63,6 +72,16 @@ class Constants {
     static MESSAGE_CART_ID_INVALID = "Invalid Cart Id";
     static MESSAGE_CART_UPDATE = "Cart Updated";
     static MESSAGE_CART_DELETED = "Cart Deleted";
+
+
+    //Order
+    static MESSAGE_ORDER_ADDED = "Order Added";
+    static MESSAGE_ORDER_ADD_FAILED = "Failed To Add Order";
+    static MESSAGE_ORDER_FOUND = "Order Found";
+    static MESSAGE_ORDER_NOT_FOUND = "No Order Found";
+    static MESSAGE_ORDER_ID_INVALID = "Invalid Order Id";
+    static MESSAGE_ORDER_UPDATE = "Order Updated";
+    static MESSAGE_ORDER_DELETED = "Order Deleted";
 }
 
 module.exports = Constants;

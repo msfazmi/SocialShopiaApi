@@ -46,10 +46,14 @@ const orderSchema = new Schema({
         type: Number,
         required: true
     },
-    discount: {
+    couponDiscount: {
         type: Number,
         default: 0,
         required: false
+    },
+    couponId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Coupon',
     },
     shippingCost: {
         type: Number,
