@@ -13,10 +13,52 @@ const orderSchema = new Schema({
         ref: 'ShippingAddress',
         required: true,
     },
-    paymentType: {
-
+    paymentMethodId: {
+        type: Schema.Types.ObjectId,
+        ref: 'PaymentMethod',
+        required: true,
+    },
+    paymentStatus: {
+        type: String,
+        enum: ['paid', 'unpaid'],
+        default: 'unpaid'
+    },
+    status: {
+        type: String,
+        enum: ['pending', 'confirmed', 'processing', 'out_for_delivery', 'returned', 'failed', 'canceled'],
+        default: 'pending'
+    },
+    deliveryBoyId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    note: {
+        type: String,
+        maxlength: 1000,
+        required: false
+    },
+    code: {
+        type: String,
+        maxlength: 1000,
+        required: true
+    },
+    amount: {
+        type: Number,
+        required: true
+    },
+    discount: {
+        type: Number,
+        default: 0,
+        required: false
+    },
+    shippingCost: {
+        type: Number,
+        default: 0,
+        required: false
     }
 
+}, {
+    timestamps: true
 });
 
 
